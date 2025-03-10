@@ -35,7 +35,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-2 transition-custom hover:opacity-80">
               <Sprout className="h-8 w-8 text-trima-600" />
               <span className="text-2xl font-display font-semibold bg-clip-text text-transparent bg-gradient-to-r from-trima-800 to-trima-600">
-                ตรีมาเขียว
+              โกรเวอร์ แพลนท์
               </span>
             </Link>
             <p className="text-muted-foreground">
@@ -43,7 +43,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 pt-2">
               <a 
-                href="#" 
+                href="https://www.facebook.com/profile.php?id=100089172523384&locale=th_TH" 
                 className={cn(
                   "bg-white p-2 rounded-full",
                   "border border-trima-100",
@@ -55,7 +55,7 @@ const Footer = () => {
               >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a 
+              {/* <a 
                 href="#" 
                 className={cn(
                   "bg-white p-2 rounded-full",
@@ -67,20 +67,7 @@ const Footer = () => {
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                className={cn(
-                  "bg-white p-2 rounded-full",
-                  "border border-trima-100",
-                  "text-trima-700 hover:text-trima-800",
-                  "transition-all duration-300",
-                  "hover:bg-trima-50 hover:shadow-sm"
-                )}
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -125,19 +112,19 @@ const Footer = () => {
               <li className="flex items-center">
                 <PhoneCall className="h-5 w-5 text-trima-600 mr-3" />
                 <a 
-                  href="tel:+6621234567" 
+                  href="tel:+66870456926" 
                   className="text-muted-foreground hover:text-trima-700 transition-colors"
                 >
-                  (+66) 02-123-4567
+                  (+66) 087-045-6926
                 </a>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-trima-600 mr-3" />
                 <a 
-                  href="mailto:contact@trimagreen.com" 
+                  href="mailto:growerplant9@gmail.com" 
                   className="text-muted-foreground hover:text-trima-700 transition-colors"
                 >
-                  contact@trimagreen.com
+                  growerplant9@gmail.com
                 </a>
               </li>
               <li className="pt-3">

@@ -49,7 +49,7 @@ const Navigation = () => {
         <Link to="/" className="flex items-center gap-2 transition-custom hover:opacity-80">
           <Sprout className="h-8 w-8 text-trima-600" />
           <span className="text-2xl font-display font-semibold bg-clip-text text-transparent bg-gradient-to-r from-trima-800 to-trima-600">
-            ตรีมาเขียว
+            โกรเวอร์ แพลนท์
           </span>
         </Link>
 

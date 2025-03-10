@@ -12,23 +12,9 @@ const allProducts: ProductProps[] = [
     id: "watermelon-1",
     name: "เมล็ดแตงโมพันธุ์หวานฉ่ำ",
     description: "เมล็ดแตงโมคุณภาพสูง ให้ผลผลิตที่หวานฉ่ำ เนื้อแน่น สีแดงสด เหมาะสำหรับการเพาะปลูกในทุกภูมิภาค",
-    image: "https://images.unsplash.com/photo-1587049332298-1c42e83937a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+    image: "https://www.disthai.com/images/editor/%E0%B9%81%E0%B8%95%E0%B8%87%E0%B9%82%E0%B8%A14.jpg",
     category: "แตงโม",
     popular: true,
-  },
-  {
-    id: "watermelon-2",
-    name: "เมล็ดแตงโมพันธุ์ทนแล้ง",
-    description: "เมล็ดแตงโมที่ทนต่อสภาพอากาศแห้งแล้ง ใช้น้ำน้อย ให้ผลผลิตดี เหมาะสำหรับพื้นที่ที่มีปัญหาเรื่องน้ำ",
-    image: "https://images.unsplash.com/photo-1563288525-8f1ee0f177a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-    category: "แตงโม",
-  },
-  {
-    id: "watermelon-3",
-    name: "เมล็ดแตงโมพันธุ์ผลใหญ่",
-    description: "เมล็ดแตงโมที่ให้ผลขนาดใหญ่พิเศษ น้ำหนักเฉลี่ย 8-12 กิโลกรัมต่อผล เนื้อแน่น รสชาติหวาน",
-    image: "https://images.unsplash.com/photo-1517156522758-6ae2b6df15a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-    category: "แตงโม",
   },
   {
     id: "pepper-1",
@@ -39,41 +25,12 @@ const allProducts: ProductProps[] = [
     popular: true,
   },
   {
-    id: "pepper-2",
-    name: "เมล็ดพริกพันธุ์ต้านทานโรค",
-    description: "เมล็ดพริกที่ต้านทานโรคได้ดี ลดการใช้สารเคมี ปลอดภัยสำหรับผู้บริโภค เหมาะสำหรับเกษตรอินทรีย์",
-    image: "https://images.unsplash.com/photo-1610127728403-7fd9f16c91ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-    category: "พริก",
-  },
-  {
-    id: "pepper-3",
-    name: "เมล็ดพริกพันธุ์ผลดก",
-    description: "เมล็ดพริกที่ให้ผลผลิตสูง ออกดอกเร็ว ติดผลดก เหมาะสำหรับการปลูกเชิงพาณิชย์",
-    image: "https://images.unsplash.com/photo-1577041677070-aa6cd3983ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-    category: "พริก",
-  },
-  {
     id: "melon-1",
     name: "เมล็ดเมล่อนพันธุ์หอมหวาน",
     description: "เมล็ดเมล่อนคุณภาพดี ให้ผลผลิตที่หอมหวาน เนื้อนุ่ม ละมุน เหมาะสำหรับการเพาะปลูกเชิงพาณิชย์",
     image: "https://images.unsplash.com/photo-1571575173700-afb9492e6a50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
     category: "เมล่อน",
-    popular: true,
-  },
-  {
-    id: "melon-2",
-    name: "เมล็ดเมล่อนพันธุ์เนื้อส้ม",
-    description: "เมล็ดเมล่อนที่ให้เนื้อสีส้มเข้ม รสชาติหวานหอม เนื้อแน่น เก็บรักษาได้นาน นิยมในตลาดพรีเมียม",
-    image: "https://images.unsplash.com/photo-1598025362622-fed7c1a1c992?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-    category: "เมล่อน",
-  },
-  {
-    id: "melon-3",
-    name: "เมล็ดเมล่อนพันธุ์ทนร้อน",
-    description: "เมล็ดเมล่อนที่ทนต่อสภาพอากาศร้อน เหมาะสำหรับการปลูกในประเทศไทย ให้ผลผลิตดีแม้ในฤดูร้อน",
-    image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-    category: "เมล่อน",
-  },
+  }
 ];
 
 const categories = [
@@ -93,7 +50,7 @@ const Products = () => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
     // Update page title
-    document.title = "สินค้าของเรา - ตรีมาเขียว";
+    document.title = "สินค้าของเรา - โกรเวอร์แพลนท์";
 
     // Get category from URL if exists
     const categoryParam = searchParams.get("category");
@@ -145,7 +102,7 @@ const Products = () => {
               <Leaf className="h-4 w-4 mr-2 text-trima-600" />
               <span className="text-sm font-medium">สินค้าของเรา</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-shadow">เมล็ดพันธุ์คุณภาพ<span className="text-trima-600">จากตรีมาเขียว</span></h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-shadow">เมล็ดพันธุ์คุณภาพ<span className="text-trima-600">จากโกรเวอร์แพลนท์</span></h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-0">
               เราคัดสรรเมล็ดพันธุ์คุณภาพดีที่สุดสำหรับเกษตรกรไทย ทั้งแตงโม พริก และเมล่อน รับประกันผลผลิตที่ดีเยี่ยม
             </p>

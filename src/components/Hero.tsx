@@ -28,7 +28,7 @@ const Hero = () => {
         className="absolute inset-0 -z-10 bg-gradient-to-b from-trima-50 to-white"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/DJI_0006.JPG')] bg-cover bg-center opacity-10"></div>
       </div>
 
       {/* Hero content */}
@@ -40,7 +40,7 @@ const Hero = () => {
           </div>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight md:leading-tight mb-6 text-shadow">
-            เมล็ดพันธุ์คุณภาพ จาก<span className="text-trima-600">ตรีมาเขียว</span>
+            เมล็ดพันธุ์คุณภาพ จาก<span className="text-trima-600">โกรเวอร์ แพลนท์</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl">

@@ -12,11 +12,11 @@ const Index = () => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
     // Update page title
-    document.title = "ตรีมาเขียว - เมล็ดพันธุ์คุณภาพสำหรับเกษตรกรไทย";
+    document.title = "โกรเวอร์แพลนท์ - เมล็ดพันธุ์คุณภาพสำหรับเกษตรกรไทย";
   }, []);
 
   return (
-    
+    <>
     <div className="min-h-screen flex flex-col">
       <Navigation />
       <main className="flex-grow">
@@ -27,6 +27,7 @@ const Index = () => {
       </main>
       <Footer />
     </div>
+    </>
   );
 };
 

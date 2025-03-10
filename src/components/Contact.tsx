@@ -63,20 +63,20 @@ const Contact = () => {
     {
       icon: <Phone className="h-6 w-6 text-trima-600" />,
       title: "โทรศัพท์",
-      content: "(+66) 02-123-4567",
-      link: "tel:+6621234567",
+      content: "(+66) 087-045-6926",
+      link: "tel:+66870456926",
     },
     {
       icon: <Mail className="h-6 w-6 text-trima-600" />,
       title: "อีเมล",
-      content: "contact@trimagreen.com",
-      link: "mailto:contact@trimagreen.com",
+      content: "growerplant9@gmail.com",
+      link: "mailto:growerplant9@gmail.com",
     },
     {
       icon: <MapPin className="h-6 w-6 text-trima-600" />,
       title: "ที่อยู่",
-      content: "123 ถนนเกษตรสมบูรณ์ ต.เมือง อ.เมือง จ.นนทบุรี 11000",
-      link: "https://maps.google.com",
+      content: "167 หมู่ 12 ต.แพง อ.โกสุมพิสัย จ.มหาสารคาม 44140",
+      link: "https://maps.app.goo.gl/889HC3J93k94nUh28",
     },
   ];
 
@@ -235,7 +235,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6">ข้อมูลการติดต่อ</h3>
               <p className="text-muted-foreground mb-8">
-                ท่านสามารถติดต่อเราได้ทางช่องทางต่าง ๆ ด้านล่าง หรือเยี่ยมชมสำนักงานใหญ่ของเราในวันจันทร์ถึงศุกร์ เวลา 8:30 - 17:30 น.
+                ท่านสามารถติดต่อเราได้ทางช่องทางต่าง ๆ ด้านล่าง หรือเยี่ยมชมสำนักงานใหญ่ของเราในวันจันทร์ถึงศุกร์ เวลา 8:00 - 17:00 น.
               </p>
               
               <div className="space-y-6">
@@ -271,12 +271,8 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold mb-6">ชั่วโมงทำการ</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">จันทร์ - ศุกร์:</span>
-                  <span className="font-medium">8:30 - 17:30 น.</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">เสาร์:</span>
-                  <span className="font-medium">9:00 - 15:00 น.</span>
+                  <span className="text-muted-foreground">จันทร์ - เสาร์:</span>
+                  <span className="font-medium">8:00 - 17:00 น.</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">อาทิตย์:</span>

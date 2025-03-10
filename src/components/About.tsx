@@ -66,8 +66,8 @@ const About = () => {
             <div className="relative">
               <div className="bg-gradient-to-tr from-trima-600 to-trima-400 rounded-3xl h-[500px] overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8" 
-                  alt="ฟาร์มตรีมาเขียว" 
+                  src="/images/d6ffddd0cb7e9e399362cb6873177bba_t.jpeg" 
+                  alt="ฟาร์มโกรเวอร์แพลนท์" 
                   className="w-full h-full object-cover mix-blend-overlay opacity-80"
                 />
               </div>
@@ -77,7 +77,7 @@ const About = () => {
                     <Sprout className="h-6 w-6 text-trima-600" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-2">20+ ปี</h4>
+                    <h4 className="text-lg font-semibold mb-2">10+ ปี</h4>
                     <p className="text-sm text-muted-foreground">ประสบการณ์ในการพัฒนาและจำหน่ายเมล็ดพันธุ์คุณภาพ</p>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ const About = () => {
             
             <p className="text-lg text-muted-foreground mb-6">
               ตรีมาเขียวเป็นผู้นำในการวิจัย พัฒนา และจำหน่ายเมล็ดพันธุ์คุณภาพสูงสำหรับแตงโม พริก และเมล่อน 
-              มานานกว่า 20 ปี เรามุ่งมั่นที่จะนำเสนอสายพันธุ์ที่ดีที่สุดเพื่อเกษตรกรไทย
+              มานานกว่า 10 ปี เรามุ่งมั่นที่จะนำเสนอสายพันธุ์ที่ดีที่สุดเพื่อเกษตรกรไทย
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">

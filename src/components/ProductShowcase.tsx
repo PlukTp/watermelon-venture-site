@@ -9,7 +9,7 @@ const products: ProductProps[] = [
     id: "watermelon-1",
     name: "เมล็ดแตงโมพันธุ์หวานฉ่ำ",
     description: "เมล็ดแตงโมคุณภาพสูง ให้ผลผลิตที่หวานฉ่ำ เนื้อแน่น สีแดงสด เหมาะสำหรับการเพาะปลูกในทุกภูมิภาค",
-    image: "https://images.unsplash.com/photo-1587049332298-1c42e83937a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+    image: "https://www.disthai.com/images/editor/%E0%B9%81%E0%B8%95%E0%B8%87%E0%B9%82%E0%B8%A14.jpg",
     category: "แตงโม",
     popular: true,
   },
@@ -19,6 +19,7 @@ const products: ProductProps[] = [
     description: "เมล็ดพริกที่ให้ความเผ็ดจัดถึงใจ ทนทานต่อโรค ให้ผลผลิตสูง เก็บเกี่ยวได้นาน",
     image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
     category: "พริก",
+    popular: true,
   },
   {
     id: "melon-1",
@@ -26,7 +27,6 @@ const products: ProductProps[] = [
     description: "เมล็ดเมล่อนคุณภาพดี ให้ผลผลิตที่หอมหวาน เนื้อนุ่ม ละมุน เหมาะสำหรับการเพาะปลูกเชิงพาณิชย์",
     image: "https://images.unsplash.com/photo-1571575173700-afb9492e6a50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
     category: "เมล่อน",
-    popular: true,
   },
 ];
 
