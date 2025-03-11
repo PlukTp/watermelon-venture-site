@@ -147,7 +147,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-trima-100 py-6 text-center">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} โกรเวอร์แพลนท์. สงวนลิขสิทธิ์ทั้งหมด.
+            &copy; {currentYear} ตรีมาเขียว. สงวนลิขสิทธิ์ทั้งหมด.
           </p>
         </div>
       </div>
