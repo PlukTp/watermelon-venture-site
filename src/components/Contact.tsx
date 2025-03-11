@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { submitToGoogleSheets } from '@/utils/googleSheets';
+import { toast } from '@/components/ui/sonner';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,7 +13,11 @@ const Contact = () => {
     subject: '',
     message: '',
   });
-  const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [googleScriptUrl, setGoogleScriptUrl] = useState(
+    localStorage.getItem('googleScriptUrl') || ''
+  );
+  const [showScriptInput, setShowScriptInput] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,22 +47,55 @@ const Contact = () => {
     setFormState(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleScriptUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const url = e.target.value;
+    setGoogleScriptUrl(url);
+    localStorage.setItem('googleScriptUrl', url);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    setTimeout(() => {
-      setFormStatus('success');
-      // Reset form after 3 seconds
+    
+    if (!googleScriptUrl) {
+      toast.error("กรุณาตั้งค่า Google Sheets URL ก่อนส่งข้อมูล");
+      setShowScriptInput(true);
+      return;
+    }
+    
+    setFormStatus('loading');
+    
+    try {
+      const result = await submitToGoogleSheets(formState, googleScriptUrl);
+      
+      if (result.success) {
+        setFormStatus('success');
+        toast.success(result.message);
+        
+        // Reset form after success
+        setTimeout(() => {
+          setFormState({
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+          });
+          setFormStatus('idle');
+        }, 3000);
+      } else {
+        setFormStatus('error');
+        toast.error(result.message);
+        setTimeout(() => {
+          setFormStatus('idle');
+        }, 3000);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setFormStatus('error');
+      toast.error("เกิดข้อผิดพลาดในการส่งข้อความ โปรดลองอีกครั้งในภายหลัง");
       setTimeout(() => {
-        setFormState({
-          name: '',
-          email: '',
-          subject: '',
-          message: '',
-        });
         setFormStatus('idle');
       }, 3000);
-    }, 1000);
+    }
   };
 
   const contactInfo = [
@@ -109,6 +148,31 @@ const Contact = () => {
           >
             <div className="p-8">
               <h3 className="text-2xl font-semibold mb-6">ส่งข้อความถึงเรา</h3>
+              
+              {/* Google Sheet Script URL Input */}
+              {showScriptInput && (
+                <div className="mb-6 p-4 border border-trima-200 rounded-lg bg-trima-50">
+                  <label htmlFor="googleScriptUrl" className="block text-sm font-medium text-foreground mb-2">
+                    Google Apps Script URL
+                  </label>
+                  <input
+                    id="googleScriptUrl"
+                    type="url"
+                    value={googleScriptUrl}
+                    onChange={handleScriptUrlChange}
+                    className={cn(
+                      "w-full px-4 py-3 rounded-lg",
+                      "border border-border focus:border-trima-300",
+                      "outline-none ring-0 focus:ring-2 focus:ring-trima-200",
+                      "bg-background transition-all duration-300"
+                    )}
+                    placeholder="https://script.google.com/macros/s/your-script-id/exec"
+                  />
+                  <p className="text-xs text-muted-foreground mt-2">
+                    ใส่ URL ของ Google Apps Script Web App ที่เชื่อมต่อกับ Google Sheets ของคุณ
+                  </p>
+                </div>
+              )}
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -197,29 +261,41 @@ const Contact = () => {
                   />
                 </div>
                 
-                <button
-                  type="submit"
-                  className={cn(
-                    "w-full py-4 px-6 rounded-lg",
-                    "bg-trima-600 hover:bg-trima-700",
-                    "text-white font-medium",
-                    "inline-flex items-center justify-center",
-                    "transition-all duration-300",
-                    "shadow-sm hover:shadow",
-                    formStatus === 'success' ? 'bg-green-600 hover:bg-green-700' : '',
-                    formStatus === 'error' ? 'bg-red-600 hover:bg-red-700' : '',
-                  )}
-                  disabled={formStatus !== 'idle'}
-                >
-                  {formStatus === 'idle' && (
-                    <>
-                      ส่งข้อความ
-                      <Send className="ml-2 h-5 w-5" />
-                    </>
-                  )}
-                  {formStatus === 'success' && 'ส่งข้อความสำเร็จ ✓'}
-                  {formStatus === 'error' && 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง'}
-                </button>
+                <div className="flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => setShowScriptInput(!showScriptInput)}
+                    className="text-sm text-trima-600 hover:text-trima-700 underline"
+                  >
+                    {showScriptInput ? 'ซ่อนการตั้งค่า' : 'ตั้งค่า Google Sheets'}
+                  </button>
+                  
+                  <button
+                    type="submit"
+                    className={cn(
+                      "py-4 px-6 rounded-lg",
+                      "bg-trima-600 hover:bg-trima-700",
+                      "text-white font-medium",
+                      "inline-flex items-center justify-center",
+                      "transition-all duration-300",
+                      "shadow-sm hover:shadow",
+                      formStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : '',
+                      formStatus === 'success' ? 'bg-green-600 hover:bg-green-700' : '',
+                      formStatus === 'error' ? 'bg-red-600 hover:bg-red-700' : '',
+                    )}
+                    disabled={formStatus === 'loading'}
+                  >
+                    {formStatus === 'idle' && (
+                      <>
+                        ส่งข้อความ
+                        <Send className="ml-2 h-5 w-5" />
+                      </>
+                    )}
+                    {formStatus === 'loading' && 'กำลังส่ง...'}
+                    {formStatus === 'success' && 'ส่งข้อความสำเร็จ ✓'}
+                    {formStatus === 'error' && 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง'}
+                  </button>
+                </div>
               </form>
             </div>
           </div>
