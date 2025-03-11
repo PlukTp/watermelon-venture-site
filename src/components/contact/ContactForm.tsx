@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Send } from 'lucide-react';
 import { submitToGoogleSheets } from '@/utils/googleSheets';
-import { toast } from '@/hooks/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 interface ContactFormProps {
   googleScriptUrl: string;
@@ -18,6 +18,7 @@ const ContactForm = ({
   showScriptInput, 
   setShowScriptInput 
 }: ContactFormProps) => {
+  const { toast } = useToast();
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -41,7 +42,11 @@ const ContactForm = ({
     e.preventDefault();
     
     if (!googleScriptUrl) {
-      toast.error("กรุณาตั้งค่า Google Sheets URL ก่อนส่งข้อมูล");
+      toast({
+        title: "ข้อผิดพลาด",
+        description: "กรุณาตั้งค่า Google Sheets URL ก่อนส่งข้อมูล",
+        variant: "destructive",
+      });
       setShowScriptInput(true);
       return;
     }
@@ -53,7 +58,10 @@ const ContactForm = ({
       
       if (result.success) {
         setFormStatus('success');
-        toast.success(result.message);
+        toast({
+          title: "ส่งข้อความสำเร็จ",
+          description: result.message,
+        });
         
         // Reset form after success
         setTimeout(() => {
@@ -67,7 +75,11 @@ const ContactForm = ({
         }, 3000);
       } else {
         setFormStatus('error');
-        toast.error(result.message);
+        toast({
+          title: "เกิดข้อผิดพลาด",
+          description: result.message,
+          variant: "destructive",
+        });
         setTimeout(() => {
           setFormStatus('idle');
         }, 3000);
@@ -75,7 +87,11 @@ const ContactForm = ({
     } catch (error) {
       console.error("Form submission error:", error);
       setFormStatus('error');
-      toast.error("เกิดข้อผิดพลาดในการส่งข้อความ โปรดลองอีกครั้งในภายหลัง");
+      toast({
+        title: "เกิดข้อผิดพลาด",
+        description: "เกิดข้อผิดพลาดในการส่งข้อความ โปรดลองอีกครั้งในภายหลัง",
+        variant: "destructive",
+      });
       setTimeout(() => {
         setFormStatus('idle');
       }, 3000);
