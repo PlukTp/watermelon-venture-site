@@ -14,9 +14,9 @@ const Footer = () => {
       { text: "ติดต่อเรา", path: "/contact" },
     ],
     products: [
-      { text: "เมล็ดแตงโม", path: "/products?category=watermelon" },
-      { text: "เมล็ดพริก", path: "/products?category=pepper" },
-      { text: "เมล็ดเมล่อน", path: "/products?category=melon" },
+      { text: "เมล็ดแตงโม", path: "/products?category=แตงโม" },
+      { text: "เมล็ดพริก", path: "/products?category=พริก" },
+      { text: "เมล็ดเมล่อน", path: "/products?category=เมล่อน" },
     ],
     support: [
       { text: "คำถามที่พบบ่อย", path: "/faq" },
@@ -147,7 +147,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-trima-100 py-6 text-center">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} ตรีมาเขียว. สงวนลิขสิทธิ์ทั้งหมด.
+            &copy; {currentYear} โกรเวอร์แพลนท์. สงวนลิขสิทธิ์ทั้งหมด.
           </p>
         </div>
       </div>
