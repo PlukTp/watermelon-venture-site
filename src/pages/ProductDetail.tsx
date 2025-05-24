@@ -36,35 +36,15 @@ const allProducts: ProductProps[] = [
   }
 ];
 
-// Extended information for each product that would normally come from an API
 const productExtendedInfo = {
   "watermelon-1": {
     fullDescription: "เมล็ดแตงโมพันธุ์หวานฉ่ำ คัดสรรมาเพื่อเกษตรกรชาวไทยโดยเฉพาะ ให้ผลผลิตที่มีรสชาติหวานฉ่ำ เนื้อแน่น สีแดงสด น้ำหนักผลเฉลี่ย 5-7 กิโลกรัม อายุการเก็บเกี่ยว 60-70 วันหลังปลูก ทนทานต่อโรคที่พบบ่อยในแตงโม เช่น โรคราน้ำค้าง โรคเหี่ยว เหมาะสำหรับการเพาะปลูกในทุกภูมิภาคของประเทศไทย",
-    // plantingInstructions: "เตรียมดินให้ร่วนซุย ผสมปุ๋ยคอกหรือปุ๋ยหมักให้ดิน ปลูกในร่องห่างกัน 2 เมตร ระยะห่างระหว่างต้น 1 เมตร รดน้ำให้ชุ่มแต่ไม่แฉะ",
-    // harvestTime: "60-70 วัน",
-    // yield: "ประมาณ 3-5 ตันต่อไร่",
-    // price: "฿280/ซอง (100 เมล็ด)",
-    // stock: 150,
     reviews: [
       { rating: 5, comment: "คุณภาพดีมาก ผลผลิตออกดกและหวานอร่อย", author: "นายสมชาย" },
       { rating: 5, comment: "เคยปลูกหลายพันธุ์ พันธุ์นี้ขายได้ราคาดีที่สุด", author: "นางนิภา" },
       { rating: 4, comment: "โตเร็ว ทนโรค แนะนำสำหรับมือใหม่", author: "นายวิชัย" }
     ]
   },
-  // "watermelon-2": {
-  //   fullDescription: "เมล็ดแตงโมพันธุ์ทนแล้ง พัฒนาเพื่อเกษตรกรในพื้นที่แห้งแล้ง ใช้น้ำน้อยกว่าพันธุ์ทั่วไปถึง 30% แต่ยังให้ผลผลิตคุณภาพดี น้ำหนักผลเฉลี่ย 4-6 กิโลกรัม เนื้อแดงสด รสชาติหวาน เหมาะสำหรับพื้นที่ที่มีปัญหาเรื่องน้ำ",
-  //   plantingInstructions: "เตรียมดินให้ร่วนซุย ผสมปุ๋ยคอกหรือปุ๋ยหมักให้ดิน ปลูกในร่องห่างกัน 2 เมตร ระยะห่างระหว่างต้น 1 เมตร รดน้ำให้ชุ่มในช่วงแรก หลังจากนั้นลดปริมาณการให้น้ำลงได้",
-  //   harvestTime: "65-75 วัน",
-  //   yield: "ประมาณ 2.5-4 ตันต่อไร่",
-  //   price: "฿300/ซอง (100 เมล็ด)",
-  //   stock: 75,
-  //   reviews: [
-  //     { rating: 5, comment: "เหมาะมากสำหรับสวนของผมที่น้ำไม่ค่อยมี", author: "นายประเสริฐ" },
-  //     { rating: 4, comment: "ทนแล้งจริง แต่ขนาดผลไม่ใหญ่มากนัก", author: "นางสาวพัชรี" }
-  //   ]
-  // },
-  // ข้อมูลเพิ่มเติมสำหรับสินค้าอื่นๆ จะมีโครงสร้างคล้ายกัน
-  // ในที่นี้แสดงตัวอย่างเพียง 2 รายการเพื่อความกระชับ
 };
 
 const ProductDetail = () => {
@@ -75,19 +55,14 @@ const ProductDetail = () => {
   const [relatedProducts, setRelatedProducts] = useState<ProductProps[]>([]);
 
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
     
-    // Find the product based on the ID from the URL
     const foundProduct = allProducts.find(p => p.id === productId);
     
-    // In a real app, this would be an API call
-    // Simulating API delay
     setTimeout(() => {
       if (foundProduct) {
         setProduct(foundProduct);
         
-        // Find related products from the same category
         const related = allProducts
           .filter(p => p.category === foundProduct.category && p.id !== foundProduct.id)
           .slice(0, 3);
@@ -168,7 +143,6 @@ const ProductDetail = () => {
     );
   }
 
-  // Get extended info if available
   const extendedInfo = (productId && productId in productExtendedInfo) 
     ? productExtendedInfo[productId as keyof typeof productExtendedInfo]
     : null;
@@ -178,7 +152,6 @@ const ProductDetail = () => {
       <Navigation />
       
       <main className="flex-grow pt-24 pb-16">
-        {/* Breadcrumb */}
         <div className="bg-muted/50 py-3 mb-8">
           <div className="container max-w-7xl mx-auto px-6">
             <div className="flex items-center text-sm text-muted-foreground">
@@ -194,9 +167,7 @@ const ProductDetail = () => {
         </div>
         
         <div className="container max-w-7xl mx-auto px-6">
-          {/* Product Detail Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-            {/* Product Image */}
             <div className="relative">
               <div className="rounded-2xl overflow-hidden bg-white border border-border shadow-sm aspect-square">
                 <img 
@@ -206,7 +177,6 @@ const ProductDetail = () => {
                 />
               </div>
               
-              {/* Category tag */}
               <div className="absolute top-4 left-4">
                 <div className="px-3 py-1 rounded-full bg-white/90 text-trima-800 text-xs font-medium flex items-center shadow-sm">
                   <Leaf className="h-3 w-3 mr-1 text-trima-600" />
@@ -214,7 +184,6 @@ const ProductDetail = () => {
                 </div>
               </div>
               
-              {/* Popular tag */}
               {product.popular && (
                 <div className="absolute top-4 right-4">
                   <div className="px-3 py-1 rounded-full bg-soil-500 text-white text-xs font-medium shadow-sm">
@@ -224,7 +193,6 @@ const ProductDetail = () => {
               )}
             </div>
             
-            {/* Product Info */}
             <div className="flex flex-col">
               <Link 
                 to="/products"
@@ -339,7 +307,6 @@ const ProductDetail = () => {
             </div>
           </div>
           
-          {/* Customer Reviews */}
           {extendedInfo && extendedInfo.reviews && extendedInfo.reviews.length > 0 && (
             <div className="mb-16">
               <h2 className="text-2xl font-semibold mb-6">รีวิวจากลูกค้า</h2>
@@ -368,7 +335,6 @@ const ProductDetail = () => {
             </div>
           )}
           
-          {/* Related Products */}
           {relatedProducts.length > 0 && (
             <div>
               <h2 className="text-2xl font-semibold mb-6">สินค้าที่เกี่ยวข้อง</h2>
@@ -378,7 +344,6 @@ const ProductDetail = () => {
                   <div key={relatedProduct.id}>
                     <Link to={`/products/${relatedProduct.id}`}>
                       <div className="group relative bg-white rounded-2xl overflow-hidden border border-border hover:border-trima-200 transition-custom shadow-sm hover:shadow-md">
-                        {/* Image container */}
                         <div className="h-48 overflow-hidden">
                           <img 
                             src={relatedProduct.image} 
@@ -387,7 +352,6 @@ const ProductDetail = () => {
                           />
                         </div>
                         
-                        {/* Content */}
                         <div className="p-4">
                           <h3 className="font-medium mb-2 group-hover:text-trima-700 transition-colors">{relatedProduct.name}</h3>
                           <p className="text-sm text-muted-foreground line-clamp-2">{relatedProduct.description}</p>

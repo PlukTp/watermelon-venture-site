@@ -9,9 +9,7 @@ import Navigation from '../components/Navigation';
 
 const Index = () => {
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
-    // Update page title
     document.title = "โกรเวอร์แพลนท์ - เมล็ดพันธุ์คุณภาพสำหรับเกษตรกรไทย";
   }, []);
 

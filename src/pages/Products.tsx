@@ -47,12 +47,9 @@ const Products = () => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
-    // Update page title
     document.title = "สินค้าของเรา - โกรเวอร์แพลนท์";
 
-    // Get category from URL if exists
     const categoryParam = searchParams.get("category");
     if (categoryParam) {
       setSelectedCategory(categoryParam);
@@ -60,7 +57,7 @@ const Products = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    // Filter products based on selected category
+
     if (selectedCategory === "all") {
       setFilteredProducts(allProducts);
     } else {
@@ -72,7 +69,7 @@ const Products = () => {
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     
-    // Update URL query parameter
+
     if (category === "all") {
       searchParams.delete("category");
     } else {
@@ -80,7 +77,7 @@ const Products = () => {
     }
     setSearchParams(searchParams);
     
-    // Close mobile filter if open
+
     if (isMobileFilterOpen) {
       setIsMobileFilterOpen(false);
     }
@@ -95,7 +92,7 @@ const Products = () => {
       <Navigation />
       
       <main className="flex-grow pt-24">
-        {/* Hero section */}
+
         <section className="bg-gradient-to-b from-trima-50 to-white py-16 px-6">
           <div className="container max-w-7xl mx-auto text-center">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-trima-100 text-trima-800 border border-trima-200 mb-6 mx-auto">
@@ -109,11 +106,9 @@ const Products = () => {
           </div>
         </section>
 
-        {/* Products section */}
         <section className="py-16 px-6">
           <div className="container max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-              {/* Mobile filter button */}
               <div className="w-full md:hidden mb-4">
                 <button 
                   onClick={toggleMobileFilter}
@@ -131,7 +126,6 @@ const Products = () => {
                 </button>
               </div>
               
-              {/* Mobile filter dropdown */}
               <div 
                 className={cn(
                   "fixed inset-x-0 top-16 bg-white shadow-lg z-30 p-6 border-t border-trima-100",
@@ -167,7 +161,6 @@ const Products = () => {
                 </div>
               </div>
               
-              {/* Desktop sidebar filter */}
               <div className="hidden md:block w-1/4 min-w-60 bg-white rounded-xl border border-trima-100 overflow-hidden sticky top-24">
                 <div className="p-6">
                   <h3 className="text-lg font-semibold mb-4">หมวดหมู่</h3>
@@ -191,7 +184,6 @@ const Products = () => {
                 </div>
               </div>
               
-              {/* Products grid */}
               <div className="w-full md:w-3/4">
                 <div className="mb-8 flex justify-between items-center">
                   <h2 className="text-2xl font-semibold">
